@@ -1,0 +1,45 @@
+		<div class="row">
+			<div class="col-md-6 m-auto">
+				<h1 class="text-center display-4 my-4">Mongo File Manager</h1>
+				<form action="/upload" method="POST" enctype="multipart/form-data">
+					<div class="custom-file mb-3">
+						<input type="file" name="file" id="file" class="custom-file-input" >
+						<label for="file" class="custom-file-label" id="custom-file-label" value="File Uploads">Choose File</label>
+					</div>
+					<div id="file-upload-filename"></div>
+					<input type="submit" value="Submit" class="btn btn-primary btn-block">
+				</form>
+				<hr>
+
+				<% if(files){ %>
+					<p>Click to Open Image</p>
+					
+
+					<% files.forEach(function(file) { %>
+						<div class="card card-body mb-3">
+							<% if(file.isImage) { %>
+							   <a href="/image/<%= file.filename %>" >
+							   		<img src="image/<%= file.filename %>" alt="logo" download>
+							   	</a>
+							   	<a class ="btn btn-info" href="/image/<%= file.filename %>")> Open Image</a>
+							<% } else { %>
+								<%= file.filename %>
+								<a class ="btn btn-info" href="/show/<%= file.filename %>"> Open File</a>
+
+							<% } %>
+						</div>
+						
+						<a class ="btn btn-warning" href="#"> Update</a>
+						<a class ="btn btn-success" href="/download/<%= file.filename %>"> Download</a> 
+
+						<hr>
+					<% }) %>
+				
+
+				<% } else { %>
+					<p> No files to show.
+				<% } %>
+			
+			</div>
+		</div>
+		<hr>	

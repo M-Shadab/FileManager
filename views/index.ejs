@@ -1,0 +1,118 @@
+		<div class="row">
+			<div class="col-md-6 m-auto">		
+				<h1 class="text-center display-4 my-4">FileVersion Manager</h1>
+				<form action="/upload" method="POST" enctype="multipart/form-data">
+					<div class="custom-file mb-3">
+						<input type="file" name="file" id="file" class="custom-file-input" >
+						<label for="file" class="custom-file-label" id="custom-file-label" value="File Uploads">Choose File</label>
+					</div>
+					<div id="file-upload-filename"></div>
+					<input type="submit" value="Submit" class="btn btn-primary btn-block">
+				</form>
+				<hr/>
+			</div>	
+
+		</div>	
+		<div class="container" >	
+							<!-- 	<div class="container col-md-6 m-auto">		 -->
+			<% if(files){ %>					
+				<% for(var i=0; i < files.length; i++) {  %>
+					<div class="row">					
+						<div class="col-md-4 card card-body mb-3">
+							<div class="thumbnail">
+							   		<a href="/versions/<%= files[i].title %>" > 
+										<img class="img-fluid" src="images/txtFile.png" alt="logo"/>
+									</a>
+							</div>
+							<h5 class="text-center"><%= files[i].title%> </h5>
+							<a class ="btn btn-info" href="/versions/<%= files[i].title %>"> Open File </a>  	
+							
+								<div class="mt-1 cont">
+									<a class ="button btn btn-danger" href="#"> Delete</a>
+									<a class ="button btn btn-success" href="#"> Share</a>
+									<!-- <a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a> -->
+								</div>
+								<!-- <div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Mailto,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div> -->
+
+							<!-- <div class="mt-1">
+								<a class ="btn btn-warning" href="#"> Replace</a>
+								<a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a> 
+								<a class ="btn btn-secondary" href="#"> Share</a>
+
+							</div> -->
+						</div>
+						
+					<!--	<a class ="btn btn-warning" href="#"> Update</a>   -->
+					<!--	<a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a>  -->
+					
+						<% i = i + 1;%>
+						<% if(i < files.length) { %>
+							<div class="col-md-4  card card-body mb-3">
+								<div class="thumbnail">	
+									<a href="/versions/<%= files[i].title %>" > 
+										<img class="img-fluid" src="images/txtFile.png" alt="logo"/>
+									</a>
+								</div>	
+								<h5 class="text-center"><%= files[i].title%> </h5>
+								<a class ="btn btn-info" href="/versions/<%= files[i].title %>"> Open File</a>
+								
+								<div class="mt-1 cont">
+									<a class ="button btn btn-danger" href="#"> Delete</a>
+									<a id="modalBtn" class="button btn btn-success" href="#"> Share</a>
+									<!-- <div id="simpleModal" class="modal">
+									      									<div class="modal-body modal-content">
+																	        	<span class="closeBtn">&times;</span>
+																	        	<p id = modelUrl>Hello...I am a modal</p>
+																	    	</div>
+																	  	</div> -->
+									<!-- <a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a> -->
+								</div>
+								<!-- <div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Mailto,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div> -->
+							</div>
+						<!--	
+							<a class ="btn btn-warning" href="#"> Update</a>
+							<a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a>
+						-->	
+						<% } %>
+
+						<% i = i + 1;%>
+						
+						<% if(i < files.length) { %>
+							<div class="col-md-4  card card-body mb-3 ">
+								<div class="thumbnail">	
+									<a href="/versions/<%= files[i].title %>" > 
+										<img class="img-fluid" src="images/txtFile.png" alt="logo"/>
+									</a>
+								</div>
+								<h5 class="text-center"><%= files[i].title%> </h5>
+								<a class ="btn btn-info" href="/versions/<%= files[i].title %>"> Open File</a>
+								
+								<!-- <div class="mt-1"> -->
+								<!-- </div> -->
+								
+								<div class="mt-1 cont">
+									<a class ="button btn btn-danger" href="#"> Delete</a>
+									<a id="modalBtn" class="button btn btn-success" href="#"> Share</a>
+									<div id="simpleModal" class="modal">
+									      									<div class="modal-body modal-content">
+																	        	<span class="closeBtn">&times;</span>
+																	        	<p id = modelUrl>Hello...I am a modal</p>
+																	    	</div>
+																	  	</div>
+									<!-- <a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a> -->
+								</div>
+								<!-- <div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Mailto,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div> -->
+
+							</div>
+						<!--	
+							<a class ="btn btn-warning" href="#"> Update</a>
+							<a class ="btn btn-success" href="/download/<%= files[i].filename %>"> Download</a>
+						-->	
+						<% } %>
+					</div>		
+				<% } %>
+			<% } else { %>
+				<p> No files to show.
+			<% } %>
+		</div>
+		<!-- <hr/>	 -->
